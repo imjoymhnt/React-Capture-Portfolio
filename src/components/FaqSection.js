@@ -48,7 +48,7 @@ const Faq = styled(About)`
         display: block;
     }
     h2{ 
-        padding-bottom2rem;
+        padding-bottom: 2rem;
         font-weight: lighter;
     }
     .faq-line{ 

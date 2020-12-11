@@ -16,6 +16,7 @@ body{
 button{
     font-weight: bold;
     font-size: 1.1.rem;
+    border-radius: 1rem;
     cursor: pointer;
     padding: 1rem 2rem;
     border: 3px solid #23d997;

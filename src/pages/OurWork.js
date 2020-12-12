@@ -8,12 +8,17 @@ import goodtimes from '../img/goodtimes-small.png';
 // Animation
 import { motion } from 'framer-motion';
 import { pageAnimation, fade, photoAnim, lineAnim, slider, sliderContainer } from '../animation';
+import { UseScroll } from '../components/useScroll';
+import ScrollTop from '../components/ScrollTop';
+
 
 const OurWork = () => {
+    const [elements, controls] = UseScroll();
+    const [elements2, controls2] = UseScroll();
     return (
         <Work exit="exit" variants={pageAnimation} initial="hidden" animate="show">
             <Movie>
-                <motion.h2 variants={fade}>The Athlete</motion.h2>
+                <motion.h2 style={{color: 'white'}} variants={fade}>The Athlete</motion.h2>
                 <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/the-athlete">
                     <Hide>
@@ -27,20 +32,21 @@ const OurWork = () => {
             <Frame3 variants={slider}></Frame3>
             <Frame4 variants={slider}></Frame4>
             </motion.div>
-            <Movie>
-                <h2>The Racer</h2>
-                <div className="line"></div>
+            <Movie ref={elements} variants={fade} animate={controls} initial="hidden">
+                <h2 style={{color: 'white'}}>The Racer</h2>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/the-racer">
                         <img src={theracer} alt="theracer"/>
                 </Link>
             </Movie>
-            <Movie>
-                <h2>Good Times</h2>
-                <div className="line"></div>
+            <Movie ref={elements2} variants={fade} animate={controls2} initial="hidden">
+                <h2 style={{color: 'white'}}>Good Times</h2>
+                <motion.div variants={lineAnim} className="line"></motion.div>
                 <Link to="/work/good-times">
                     <img src={goodtimes} alt="goodtimes"/>
                 </Link>
             </Movie>
+            <ScrollTop />
         </Work>
     )
 }
@@ -53,7 +59,7 @@ const Work = styled(motion.div)`
         padding: 1rem 0rem;
     }
 `
-const Movie = styled.div`
+const Movie = styled(motion.div)`
     padding-bottom: 10rem;
     .line{
         height: 0.5rem;

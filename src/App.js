@@ -9,7 +9,6 @@ import MovieDetail from './pages/MovieDetail';
 // Animation
 import { AnimatePresence } from 'framer-motion';
 
-
 function App() {
   const location = useLocation();
   return (
